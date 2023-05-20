@@ -27,7 +27,7 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
         <>
             <Card
                 mode='elevated'
-                elevation={3}
+                elevation={2}
                 style={styles.card}>
                 <Card.Cover
                     source={{ uri: photos[0] }}
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     card: {
         borderRadius: 3,
         backgroundColor: colors.white,
-        marginBottom: spacing.lg,
+        marginBottom: spacing.sm,
         marginTop: spacing.sm,
         marginLeft: spacing.sm,
         marginRight: spacing.sm,
