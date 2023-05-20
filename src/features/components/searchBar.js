@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
-import { spacing } from '../utils/sizes';
+import { spacing } from '../../utils/sizes';
 
 export default function SearchBar() {
     const [searchQuery, setSearchQuery] = useState('');
