@@ -10,11 +10,11 @@ import React from 'react'
 
 import { spacing } from '../../utils/sizes';
 
-export default function SafeContainer(props) {
+export default function SafeContainer({children}) {
     return (
         <>
             <SafeAreaView style={styles.container}>
-                {props.children}
+                {children}
             </SafeAreaView>
         </>
     )

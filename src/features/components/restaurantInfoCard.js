@@ -10,15 +10,15 @@ import { colors } from '../../utils/colors';
 import { spacing } from '../../utils/sizes';
 import { fonts, fontSizes } from '../../utils/fonts';
 
-export default function RestaurantInfoCard({ restaurant = {} }) {
+export default function RestaurantInfoCard({ restaurant }) {
     const {
-        name = 'Some Restaurant',
-        icon = 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
-        photos = ['https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg'],
-        address = '100 Random Street',
-        isOpenNow = true,
-        rating = 3,
-        isClosedTemp = false
+        name,
+        icon,
+        photos,
+        vicinity,
+        isOpenNow,
+        rating,
+        isClosedTemp
     } = restaurant;
 
     const ratingArray = Array.from(new Array(Math.floor(rating)));
@@ -48,7 +48,7 @@ export default function RestaurantInfoCard({ restaurant = {} }) {
                             <Image style={styles.icon} source={{ uri: icon }} />
                         </View>
                     </View>
-                    <Text variant="titleLarge" style={styles.textHeading}>{address}</Text>
+                    <Text variant="titleLarge" style={styles.textHeading}>{vicinity}</Text>
                 </Card.Content>
             </Card>
         </>

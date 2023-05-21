@@ -6,9 +6,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/oswald'
 import { useFonts as useLato, Lato_400Regular, Lato_700Bold } from '@expo-google-fonts/lato'
 
+import { RestaurantsContextProvider } from './src/services/restaurants/restaurantsContext';
+
 import RestaurantsScreen from './src/features/screens/restaurants.screen';
 import MapScreen from './src/features/screens/map.screen';
 import SettingsScreen from './src/features/screens/settings.screen';
+
+import { colors } from './src/utils/colors';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,8 +34,8 @@ const createScreenOptions = ({ route }) => {
     tabBarIcon: ({ size, color }) => {
       return <Ionicons name={iconName} size={size} color={color} />
     },
-    tabBarActiveTintColor: 'tomato',
-    tabBarInactiveTintColor: 'gray',
+    tabBarActiveTintColor: colors.tomato,
+    tabBarInactiveTintColor: colors.gray,
     headerShown: false
   })
 }
@@ -49,21 +53,23 @@ export default function App() {
 
   return (
     <>
-      <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={createScreenOptions}
-        >
-          <Tab.Screen
-            name={NAV_SCREENS.Restaurants}
-            component={RestaurantsScreen} />
-          <Tab.Screen
-            name={NAV_SCREENS.Map}
-            component={MapScreen} />
-          <Tab.Screen
-            name={NAV_SCREENS.Settings}
-            component={SettingsScreen} />
-        </Tab.Navigator>
-      </NavigationContainer >
+      <RestaurantsContextProvider>
+        <NavigationContainer>
+          <Tab.Navigator
+            screenOptions={createScreenOptions}
+          >
+            <Tab.Screen
+              name={NAV_SCREENS.Restaurants}
+              component={RestaurantsScreen} />
+            <Tab.Screen
+              name={NAV_SCREENS.Map}
+              component={MapScreen} />
+            <Tab.Screen
+              name={NAV_SCREENS.Settings}
+              component={SettingsScreen} />
+          </Tab.Navigator>
+        </NavigationContainer >
+      </RestaurantsContextProvider>
     </>
   );
 };
