@@ -7,6 +7,7 @@ import { useFonts as useOswald, Oswald_400Regular } from '@expo-google-fonts/osw
 import { useFonts as useLato, Lato_400Regular, Lato_700Bold } from '@expo-google-fonts/lato'
 
 import { RestaurantsContextProvider } from './src/services/restaurants/restaurantsContext';
+import { LocationContextProvider } from './src/services/location/locationContext';
 
 import RestaurantsScreen from './src/features/screens/restaurants.screen';
 import MapScreen from './src/features/screens/map.screen';
@@ -53,23 +54,25 @@ export default function App() {
 
   return (
     <>
-      <RestaurantsContextProvider>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={createScreenOptions}
-          >
-            <Tab.Screen
-              name={NAV_SCREENS.Restaurants}
-              component={RestaurantsScreen} />
-            <Tab.Screen
-              name={NAV_SCREENS.Map}
-              component={MapScreen} />
-            <Tab.Screen
-              name={NAV_SCREENS.Settings}
-              component={SettingsScreen} />
-          </Tab.Navigator>
-        </NavigationContainer >
-      </RestaurantsContextProvider>
+      <LocationContextProvider>
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={createScreenOptions}
+            >
+              <Tab.Screen
+                name={NAV_SCREENS.Restaurants}
+                component={RestaurantsScreen} />
+              <Tab.Screen
+                name={NAV_SCREENS.Map}
+                component={MapScreen} />
+              <Tab.Screen
+                name={NAV_SCREENS.Settings}
+                component={SettingsScreen} />
+            </Tab.Navigator>
+          </NavigationContainer >
+        </RestaurantsContextProvider>
+      </LocationContextProvider>
     </>
   );
 };
