@@ -1,25 +1,42 @@
-import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { useState, useContext, useEffect } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
 import { spacing } from '../../utils/sizes';
+import { LocationContext } from '../../services/location/locationContext';
 
 export default function SearchBar() {
-    const [searchQuery, setSearchQuery] = useState('');
+    const locationContext = useContext(LocationContext);
+    const {
+        isLoading,
+        error,
+        location,
+        search,
+        keyword
+    } = locationContext;
+    const [searchQuery, setSearchQuery] = useState(keyword);
+
 
     const onChangeSearch = function (query) {
         setSearchQuery(query);
     }
 
+    useEffect(() => {
+        search(searchQuery);
+    }, []);
+
     return (
         <>
-            <Searchbar
-                style={styles.searchbar}
-                placeholder="Search"
-                onChangeText={(query) => setSeachQuery(query)}
-                value={searchQuery}
-                mode="bar"
-            />
+            <View style={styles.searchBarContainer}>
+                <Searchbar
+                    style={styles.searchbar}
+                    placeholder="Search"
+                    onChangeText={(query) => setSearchQuery(query)}
+                    onSubmitEditing={() => search(searchQuery)}
+                    value={searchQuery}
+                    mode="bar"
+                />
+            </View>
         </>
     )
 }

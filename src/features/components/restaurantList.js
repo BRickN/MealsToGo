@@ -17,23 +17,28 @@ export default function RestaurantList() {
     const renderCard = ({ item }) => {
         return <RestaurantInfoCard restaurant={item} />
     }
+
     if (isLoading) {
         return (
             <>
-                <ActivityIndicator
-                    animating={true}
-                    color={colors.tomato}
-                    style={styles.loader} />
+                <View style={styles.restaurantsContainer}>
+                    <ActivityIndicator
+                        animating={true}
+                        color={colors.tomato}
+                        style={styles.loader} />
+                </View>
             </>
         )
     } else {
         return (
             <>
-                <FlatList
-                    data={restaurants}
-                    renderItem={renderCard}
-                    keyExtractor={(item) => item.name}
-                />
+                <View style={styles.restaurantsContainer}>
+                    <FlatList
+                        data={restaurants}
+                        renderItem={renderCard}
+                        keyExtractor={(item) => item.name}
+                    />
+                </View>
             </>
         )
     }
@@ -44,5 +49,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
+    restaurantsContainer: {
+        flex: 1,
+      },
 })

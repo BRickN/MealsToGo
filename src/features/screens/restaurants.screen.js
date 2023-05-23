@@ -13,21 +13,14 @@ export default function RestaurantsScreen() {
   return (
     <>
       <SafeContainer>
-        <View style={styles.searchBarContainer}>
-          <SearchBar />
-        </View>
-        <View style={styles.restaurantsContainer}>
-          <RestaurantList />
-        </View>
+        <SearchBar />
+        <RestaurantList />
       </SafeContainer>
     </>
   )
 }
 
 const styles = StyleSheet.create({
-  searchBarContainer: {
-
-  },
   restaurantsContainer: {
     flex: 1,
   },

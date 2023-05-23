@@ -18,10 +18,14 @@ export default function RestaurantInfoCard({ restaurant }) {
         vicinity,
         isOpenNow,
         rating,
-        isClosedTemp
+        isClosedTemp,
+        placeId
     } = restaurant;
 
-    const ratingArray = Array.from(new Array(Math.floor(rating)));
+    let ratingArray;
+    if (rating) {
+        ratingArray = Array.from(new Array(Math.ceil(rating)));
+    }
 
     return (
         <>
@@ -36,8 +40,8 @@ export default function RestaurantInfoCard({ restaurant }) {
                     <Text variant="titleLarge" style={styles.textTitle}>{name}</Text>
                     <View style={styles.ratingWrapper}>
                         <View style={styles.starWrapper}>
-                            {ratingArray.map(() => {
-                                return <SvgXml style={styles.icon} xml={star} />
+                            {ratingArray?.map((_, idx) => {
+                                return <SvgXml style={styles.icon} xml={star} key={`star-${placeId}-${idx}`} />
                             })}
                         </View>
                         <View style={styles.openClosedInfoWrapper}>
