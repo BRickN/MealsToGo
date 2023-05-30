@@ -9,19 +9,13 @@ import RestaurantList from '../components/restaurantList';
 import SafeContainer from '../components/safeContainer';
 
 
-export default function RestaurantsScreen() {
+export default function RestaurantsScreen({ navigation }) {
   return (
     <>
       <SafeContainer>
         <SearchBar />
-        <RestaurantList />
+        <RestaurantList navigation={navigation} />
       </SafeContainer>
     </>
   )
 }
-
-const styles = StyleSheet.create({
-  restaurantsContainer: {
-    flex: 1,
-  },
-});

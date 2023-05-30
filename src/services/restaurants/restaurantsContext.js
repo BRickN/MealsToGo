@@ -27,7 +27,7 @@ export const RestaurantsContextProvider = ({ children }) => {
                 .finally(() => {
                     setIsLoading(false);
                 })
-        }, 1500)
+        }, 500)
     }
 
     //useEffect, empty array to perform only on init of component

@@ -1,4 +1,4 @@
-import { View, Text, FlatList, StyleSheet } from 'react-native'
+import { View, Text, FlatList, StyleSheet, Pressable, TouchableOpacity } from 'react-native'
 import React, { useContext } from 'react'
 import { ActivityIndicator } from 'react-native-paper';
 
@@ -7,7 +7,7 @@ import { RestaurantsContext } from '../../services/restaurants/restaurantsContex
 
 import { colors } from '../../utils/colors';
 
-export default function RestaurantList() {
+export default function RestaurantList({ navigation }) {
     const restaurantContext = useContext(RestaurantsContext);
     const {
         restaurants,
@@ -15,7 +15,15 @@ export default function RestaurantList() {
         error } = restaurantContext;
 
     const renderCard = ({ item }) => {
-        return <RestaurantInfoCard restaurant={item} />
+        return (
+            <TouchableOpacity onPress={() => navigation.navigate(
+                "RestaurantDetail", {
+                restaurant: item
+            })
+            }>
+                <RestaurantInfoCard restaurant={item} />
+            </TouchableOpacity>
+        )
     }
 
     if (isLoading) {
@@ -52,5 +60,5 @@ const styles = StyleSheet.create({
     },
     restaurantsContainer: {
         flex: 1,
-      },
+    },
 })

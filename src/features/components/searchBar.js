@@ -16,14 +16,9 @@ export default function SearchBar() {
     } = locationContext;
     const [searchQuery, setSearchQuery] = useState(keyword);
 
-
-    const onChangeSearch = function (query) {
-        setSearchQuery(query);
-    }
-
-    useEffect(() => {
-        search(searchQuery);
-    }, []);
+    // const onChangeSearch = function (query) {
+    //     setSearchQuery(query);
+    // }
 
     return (
         <>
