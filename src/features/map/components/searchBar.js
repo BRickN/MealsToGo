@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
-import { spacing } from '../../utils/sizes';
-import { LocationContext } from '../../services/location/locationContext';
+import { spacing } from '../../../utils/sizes';
+import { LocationContext } from '../../../services/location/locationContext';
 
 export default function SearchBar() {
     const locationContext = useContext(LocationContext);
