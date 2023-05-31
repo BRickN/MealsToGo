@@ -16,6 +16,10 @@ export default function SearchBar() {
     } = locationContext;
     const [searchQuery, setSearchQuery] = useState(keyword);
 
+    useEffect(() => {
+        setSearchQuery(keyword)
+    }, [keyword])
+
     return (
         <>
             <View style={styles.searchBarContainer}>

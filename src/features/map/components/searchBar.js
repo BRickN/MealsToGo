@@ -16,11 +16,16 @@ export default function SearchBar() {
     } = locationContext;
     const [searchQuery, setSearchQuery] = useState(keyword);
 
+    useEffect(() => {
+        setSearchQuery(keyword)
+    }, [keyword])
+
     return (
         <>
             <View style={styles.searchBarContainer}>
                 <Searchbar
                     style={styles.searchbar}
+                    icon="map"
                     placeholder="Search"
                     onChangeText={(query) => setSearchQuery(query)}
                     onSubmitEditing={() => search(searchQuery)}
@@ -33,7 +38,11 @@ export default function SearchBar() {
 }
 
 const styles = StyleSheet.create({
+    searchBarContainer: {
+    },
     searchbar: {
+        position: 'absolute',
         margin: spacing.sm,
+        top: 45,
     },
 })
