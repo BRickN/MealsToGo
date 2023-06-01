@@ -1,5 +1,3 @@
-import { View, Text } from 'react-native'
-import React from 'react'
 import camelize from "camelize";
 
 import { locations } from './locationMock';
@@ -19,5 +17,5 @@ export const locationTransform = ({ results = [] }) => {
     const { geometry = {} } = formattedResults[0];
     const { lat, lng } = geometry.location;
 
-    return { lat, lng };
+    return { lat, lng, viewport: geometry.viewport };
 }
