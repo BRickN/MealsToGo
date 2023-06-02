@@ -4,11 +4,13 @@ import { ActivityIndicator } from 'react-native-paper';
 
 import RestaurantInfoCard from '../components/restaurantInfoCard';
 import { RestaurantsContext } from '../../services/restaurants/restaurantsContext';
+import { FavouritesContext } from '../../services/favourites/favouritesContext';
 
 import { colors } from '../../utils/colors';
 
 export default function RestaurantList({ navigation }) {
     const restaurantContext = useContext(RestaurantsContext);
+
     const {
         restaurants,
         isLoading,

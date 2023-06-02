@@ -4,6 +4,7 @@ import { Card } from 'react-native-paper';
 import { SvgXml } from 'react-native-svg';
 
 import Spacer from '../components/spacer';
+import Favourite from './favourite';
 
 import { star, open } from '../../utils/icons';
 import { colors } from '../../utils/colors';
@@ -33,6 +34,7 @@ export default function RestaurantInfoCard({ restaurant }) {
                 mode='elevated'
                 elevation={2}
                 style={styles.card}>
+                <Favourite restaurant={restaurant} />
                 <Card.Cover
                     source={{ uri: photos[0] }}
                     style={styles.image} />

@@ -5,6 +5,7 @@ import { useFonts as useLato, Lato_400Regular, Lato_700Bold } from '@expo-google
 
 import { RestaurantsContextProvider } from './src/services/restaurants/restaurantsContext';
 import { LocationContextProvider } from './src/services/location/locationContext';
+import { FavouritesContextProvider } from './src/services/favourites/favouritesContext';
 
 import Navigation from './src/infrastructure/navigation/index';
 
@@ -21,11 +22,13 @@ export default function App() {
 
   return (
     <>
-      <LocationContextProvider>
-        <RestaurantsContextProvider>
-          <Navigation/>
-        </RestaurantsContextProvider>
-      </LocationContextProvider>
+      <FavouritesContextProvider>
+        <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <Navigation />
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
+      </FavouritesContextProvider>
     </>
   );
 };
