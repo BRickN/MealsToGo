@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import React, { useContext, useEffect, useState } from 'react'
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Callout, Marker } from 'react-native-maps';
 import { ActivityIndicator } from 'react-native-paper';
 
 import SearchBar from '../components/searchBar';
@@ -8,8 +8,9 @@ import SafeContainer from '../../components/safeContainer';
 import { LocationContext } from '../../../services/location/locationContext';
 import { RestaurantsContext } from '../../../services/restaurants/restaurantsContext';
 import { colors } from '../../../utils/colors';
+import MapCalloutComponent from '../../components/mapCalloutComponent';
 
-export default function MapScreen() {
+export default function MapScreen({ navigation }) {
     const { location } = useContext(LocationContext)
     const { restaurants = [], isLoading } = useContext(RestaurantsContext);
 
@@ -64,7 +65,13 @@ export default function MapScreen() {
                             key={restaurant.name}
                             title={restaurant.name}
                             coordinate={coordinate}
-                        />
+                        >
+                            <Callout
+                                style={styles.callout}
+                                onPress={() => navigation.navigate("RestaurantDetail", { restaurant })}>
+                                <MapCalloutComponent restaurant={restaurant} />
+                            </Callout>
+                        </Marker>
                     );
                 })}
 
@@ -83,5 +90,5 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         textAlign: 'center',
-    },
+    }
 })
