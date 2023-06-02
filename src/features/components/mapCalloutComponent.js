@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Platform } from 'react-native';
 import { WebView } from 'react-native-webview';
+import { fonts, fontSizes } from '../../utils/fonts';
 
 export default function MapCalloutComponent({ restaurant }) {
     return (
@@ -11,7 +12,7 @@ export default function MapCalloutComponent({ restaurant }) {
                         style={styles.androidImg}
                         source={{ uri: restaurant.photos[0] }}
                     />
-                    <Text> {restaurant.name}</Text>
+                    <Text style={styles.text}> {restaurant.name}</Text>
                 </View>
                 :
                 <>
@@ -43,5 +44,9 @@ const styles = StyleSheet.create({
         height: 100,
         width: 120,
         borderRadius: 10,
+    },
+    text:{
+        fontFamily:fonts.body,
+        fontSize:fontSizes.caption,
     }
 })
