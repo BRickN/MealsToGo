@@ -1,6 +1,5 @@
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import SettingsScreen from '../../features/settings/screens/settings.screen';
@@ -36,7 +35,6 @@ export default function AppNavigator() {
     }
 
     return (
-        <NavigationContainer>
             <Tab.Navigator
                 screenOptions={createScreenOptions}
             >
@@ -50,6 +48,5 @@ export default function AppNavigator() {
                     name={NAV_SCREENS.Settings}
                     component={SettingsScreen} />
             </Tab.Navigator>
-        </NavigationContainer >
     )
 }
