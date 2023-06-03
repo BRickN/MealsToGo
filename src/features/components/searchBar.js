@@ -5,7 +5,7 @@ import { Searchbar } from 'react-native-paper';
 import { spacing } from '../../utils/sizes';
 import { LocationContext } from '../../services/location/locationContext';
 
-export default function SearchBar() {
+export default function SearchBar({ isFavouritesToggled, onFavouritesToggle }) {
     const locationContext = useContext(LocationContext);
     const {
         isLoading,
@@ -24,6 +24,8 @@ export default function SearchBar() {
         <>
             <View style={styles.searchBarContainer}>
                 <Searchbar
+                    icon={isFavouritesToggled ? "heart" : "heart-outline"}
+                    onIconPress={onFavouritesToggle}
                     style={styles.searchbar}
                     placeholder="Search"
                     onChangeText={(query) => setSearchQuery(query)}
