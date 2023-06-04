@@ -6,7 +6,7 @@ import { auth } from '../firebase/firebase';
 
 
 export const loginRequest = (email, password) => {
-    signInWithEmailAndPassword(auth, 'email', 'password')
+    return signInWithEmailAndPassword(auth, email, password)
 }
 
 // export default function AuthenticationService() {

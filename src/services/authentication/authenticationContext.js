@@ -15,9 +15,12 @@ export default function AuthenticationContextProvider({ children }) {
         loginRequest(email, password)
             .then((u) => {
                 setUser(u);
+                console.log('logged in');
             })
             .catch((error) => {
                 setError(error);
+                console.log('error', error);
+
             })
             .finally(() => {
                 setIsLoading(false);
@@ -28,6 +31,7 @@ export default function AuthenticationContextProvider({ children }) {
         <>
             <AuthenticationContext.Provider
                 value={{
+                    isAuthenticated: !!user,
                     user,
                     isLoading,
                     error,
