@@ -7,15 +7,9 @@ import { RestaurantsContext } from '../../services/restaurants/restaurantsContex
 import { FavouritesContext } from '../../services/favourites/favouritesContext';
 
 import { colors } from '../../utils/colors';
+import { FadeInView } from './fadeAnimation';
 
-export default function RestaurantList({ navigation }) {
-    const restaurantContext = useContext(RestaurantsContext);
-
-    const {
-        restaurants,
-        isLoading,
-        error } = restaurantContext;
-
+export default function RestaurantList({ navigation, restaurants, isLoading }) {
     const renderCard = ({ item }) => {
         return (
             <TouchableOpacity onPress={() => navigation.navigate(
@@ -23,7 +17,9 @@ export default function RestaurantList({ navigation }) {
                 restaurant: item
             })
             }>
-                <RestaurantInfoCard restaurant={item} />
+                <FadeInView>
+                    <RestaurantInfoCard restaurant={item} />
+                </FadeInView>
             </TouchableOpacity>
         )
     }

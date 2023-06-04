@@ -6,10 +6,10 @@ import { RestaurantsContextProvider } from '../../services/restaurants/restauran
 import { LocationContextProvider } from '../../services/location/locationContext';
 import { FavouritesContextProvider } from '../../services/favourites/favouritesContext';
 
-import SettingsScreen from '../../features/settings/screens/settings.screen';
 import RestaurantNavigator from './restaurantNavigator';
 import MapNavigator from './mapNavigator';
 import { colors } from '../../utils/colors';
+import { SettingsNavigator } from './settingsNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,7 +54,7 @@ export default function AppNavigator() {
                                 component={MapNavigator} />
                             <Tab.Screen
                                 name={NAV_SCREENS.Settings}
-                                component={SettingsScreen} />
+                                component={SettingsNavigator} />
                         </Tab.Navigator>
                     </RestaurantsContextProvider>
                 </LocationContextProvider>

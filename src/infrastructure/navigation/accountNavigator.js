@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View } from 'react-native';
-import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'
+import { createStackNavigator, TransitionPresets, CardStyleInterpolators } from '@react-navigation/stack'
 import AccountScreen from '../../features/account/screens/accountScreen';
 import RegisterScreen from '../../features/account/screens/registerScreen';
 import LoginScreen from '../../features/account/screens/loginScreen';
@@ -12,7 +12,7 @@ export default function AccountNavigator() {
         <>
             <Stack.Navigator screenOptions={() => ({
                 headerShown: false,
-                ...TransitionPresets.ModalPresentationIOS
+                cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
             })}
             >
                 <Stack.Screen

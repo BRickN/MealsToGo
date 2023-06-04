@@ -11,6 +11,7 @@ export default function AuthenticationContextProvider({ children }) {
 
     useEffect(() => {
         const authUnsubscribe = onAuthStateChange(user => {
+            console.log(user?.email)
             if (user) {
                 setUser(user);
                 setIsLoading(false);
