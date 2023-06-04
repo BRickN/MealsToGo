@@ -29,7 +29,7 @@ export default function AuthenticationContextProvider({ children }) {
                 setError([]);
                 console.log("signed out");
             }).catch((error) => {
-                console.log('error', error);
+                console.log('error logging out', error);
             })
     }
 
