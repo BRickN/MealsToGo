@@ -37,8 +37,8 @@ export default function AuthenticationContextProvider({ children }) {
     const onLogin = (email, password) => {
         setIsLoading(true);
         loginRequest(email, password)
-            .then((u) => {
-                setUser(u);
+            .then((userCredential) => {
+                setUser(userCredential.user);
             })
             .catch((error) => {
                 setError(mapError(error.message));

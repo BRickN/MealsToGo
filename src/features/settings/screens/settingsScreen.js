@@ -1,6 +1,8 @@
-import { StyleSheet, View, Text } from 'react-native'
-import React, { useContext } from 'react'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import React, { useContext, useEffect, useState } from 'react'
 import { List, Avatar } from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/native';
 
 import SafeContainer from '../../components/safeContainer';
 import { AuthenticationContext } from '../../../services/authentication/authenticationContext';
@@ -9,14 +11,32 @@ import { fontSizes } from '../../../utils/fonts';
 
 export default function SettingsScreen({ navigation }) {
     const { onLogout, user } = useContext(AuthenticationContext);
+    const [photo, setPhoto] = useState('');
+
+    const getProfilePicture = async (currentUser) => {
+        const photoUri = await AsyncStorage.getItem(`photos-${currentUser?.uid}`);
+        if (photoUri !== null) {
+            setPhoto(photoUri);
+        }
+    };
+
+    useFocusEffect(
+        React.useCallback(() => {
+            getProfilePicture(user);
+        }, [user])
+    );
 
     return (
         <>
             <SafeContainer>
-                <View style={styles.avatarContainer}>
-                    <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
-                    <Text style={styles.emailText}>{user.email}</Text>
-                </View>
+                <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
+                    <View style={styles.avatarContainer}>
+                        {!photo
+                            ? <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
+                            : <Avatar.Image size={180} source={{ uri: photo }} backgroundColor="#2182BD" />}
+                        <Text style={styles.emailText}>{user.email}</Text>
+                    </View>
+                </TouchableOpacity >
                 <List.Section>
                     <List.Item
                         style={styles.listItem}
@@ -32,7 +52,7 @@ export default function SettingsScreen({ navigation }) {
                         onPress={onLogout}
                     />
                 </List.Section>
-            </SafeContainer>
+            </SafeContainer >
         </>
     )
 }
@@ -43,7 +63,7 @@ const styles = StyleSheet.create({
     },
     avatarContainer: {
         alignItems: 'center',
-        margin:15,
+        margin: 15,
     },
     emailText: {
         padding: 10,

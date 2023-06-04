@@ -18,13 +18,6 @@ export default function MapScreen({ navigation }) {
     const [region, setRegion] = useState(null);
     const { lat, lng, viewport } = location;
 
-    // useEffect(() => {
-    //     const northEastLat = viewport.northeast.lat;
-    //     const southWestLat = viewport.southwest.lat;
-
-    //     const latDelta = northEastLat - southWestLat;
-    //     setLatDelta(latDelta);
-    // }, [location, viewport])
     useEffect(() => {
         const northEastLat = viewport.northeast.lat;
         const southWestLat = viewport.southwest.lat;
@@ -42,9 +35,7 @@ export default function MapScreen({ navigation }) {
 
     return (
         <>
-
             <SearchBar />
-
             {isLoading &&
                 <ActivityIndicator
                     animating={true}
