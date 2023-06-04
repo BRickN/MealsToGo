@@ -1,26 +1,66 @@
-import { View, Text } from 'react-native'
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, createContext, useEffect } from 'react'
 
-import { loginRequest } from './authenticationService';
+import { loginRequest, registerRequest, onAuthStateChange, mapError, signOutRequest } from './authenticationService';
 
 export const AuthenticationContext = createContext();
 
 export default function AuthenticationContextProvider({ children }) {
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+    const [error, setError] = useState([]);
+
+    useEffect(() => {
+        const authUnsubscribe = onAuthStateChange(user => {
+            if (user) {
+                setUser(user);
+                setIsLoading(false);
+            } else {
+                setIsLoading(false);
+            }
+        })
+
+        return authUnsubscribe;
+    }, [])
+
+    const onLogout = () => {
+        signOutRequest()
+            .then(() => {
+                setUser(null);
+                setError([]);
+                console.log("signed out");
+            }).catch((error) => {
+                console.log('error', error);
+            })
+    }
 
     const onLogin = (email, password) => {
         setIsLoading(true);
         loginRequest(email, password)
             .then((u) => {
                 setUser(u);
-                console.log('logged in');
             })
             .catch((error) => {
-                setError(error);
-                console.log('error', error);
+                setError(mapError(error.message));
+            })
+            .finally(() => {
+                setIsLoading(false);
+            })
+    }
 
+    const onRegister = (email, password, repeatedPassword) => {
+        setIsLoading(true);
+
+        if (password !== repeatedPassword) {
+            setError("Error: Passwords do not match");
+            return;
+        }
+
+        registerRequest(email, password)
+            .then((u) => {
+                setUser(u);
+            })
+            .catch((error) => {
+                setError(mapError(error.message));
             })
             .finally(() => {
                 setIsLoading(false);
@@ -36,6 +76,8 @@ export default function AuthenticationContextProvider({ children }) {
                     isLoading,
                     error,
                     onLogin,
+                    onRegister,
+                    onLogout
                 }}
 
             >
