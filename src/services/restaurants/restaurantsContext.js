@@ -15,24 +15,23 @@ export const RestaurantsContextProvider = ({ children }) => {
     const retrieveRestaurants = (location) => {
         setIsLoading(true);
         setRestaurants([]);
-        setTimeout(() => {
-            restaurantsRequest(location)
-                .then(restaurantsTransform)
-                .then((transformedRestaurants) => {
-                    setRestaurants(transformedRestaurants);
-                })
-                .catch(err => {
-                    setError(err);
-                })
-                .finally(() => {
-                    setIsLoading(false);
-                })
-        }, 500)
+
+        restaurantsRequest(location)
+            .then(restaurantsTransform)
+            .then((transformedRestaurants) => {
+                setRestaurants(transformedRestaurants);
+            })
+            .catch(err => {
+                setError(err);
+            })
+            .finally(() => {
+                setIsLoading(false);
+            })
     }
 
     //useEffect, empty array to perform only on init of component
     useEffect(() => {
-        if(location){
+        if (location) {
             const locationFormatted = `${location.lat},${location.lng}`;
             retrieveRestaurants(locationFormatted);
         }
@@ -42,7 +41,7 @@ export const RestaurantsContextProvider = ({ children }) => {
         <RestaurantsContext.Provider
             value={{
                 restaurants: restaurants,
-                isLoading: isLoading,
+                isLoadingRestaurants: isLoading,
                 error: error
             }}>
             {children}

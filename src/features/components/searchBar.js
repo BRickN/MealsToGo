@@ -8,7 +8,7 @@ import { LocationContext } from '../../services/location/locationContext';
 export default function SearchBar({ isFavouritesToggled, onFavouritesToggle }) {
     const locationContext = useContext(LocationContext);
     const {
-        isLoading,
+        isLoadingLocation,
         error,
         location,
         search,

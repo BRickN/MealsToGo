@@ -7,6 +7,7 @@ import SafeContainer from '../../components/safeContainer';
 
 import { FavouritesContext } from '../../../services/favourites/favouritesContext';
 import { RestaurantsContext } from '../../../services/restaurants/restaurantsContext';
+import { LocationContext } from '../../../services/location/locationContext';
 import FavouritesBar from '../../components/favouritesBar';
 
 export default function RestaurantsScreen({ navigation }) {
@@ -15,11 +16,18 @@ export default function RestaurantsScreen({ navigation }) {
   const [isFavouritesToggled, setIsFavouritesToggled] = useState(false);
 
   const restaurantContext = useContext(RestaurantsContext);
+  const locationContext = useContext(LocationContext);
 
   const {
     restaurants,
-    isLoading,
+    isLoadingRestaurants,
     error } = restaurantContext;
+
+  const {
+    isLoadingLocation
+  } = locationContext
+
+  const isLoading = isLoadingRestaurants || isLoadingLocation
 
   return (
     <>

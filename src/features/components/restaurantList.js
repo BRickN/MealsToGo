@@ -3,9 +3,6 @@ import React, { useContext } from 'react'
 import { ActivityIndicator } from 'react-native-paper';
 
 import RestaurantInfoCard from '../components/restaurantInfoCard';
-import { RestaurantsContext } from '../../services/restaurants/restaurantsContext';
-import { FavouritesContext } from '../../services/favourites/favouritesContext';
-
 import { colors } from '../../utils/colors';
 import { FadeInView } from './fadeAnimation';
 

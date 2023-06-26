@@ -8,7 +8,7 @@ import { LocationContext } from '../../../services/location/locationContext';
 export default function SearchBar() {
     const locationContext = useContext(LocationContext);
     const {
-        isLoading,
+        isLoadingLocation,
         error,
         location,
         search,

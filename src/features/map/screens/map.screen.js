@@ -12,31 +12,33 @@ import MapCalloutComponent from '../../components/mapCalloutComponent';
 
 export default function MapScreen({ navigation }) {
     const { location } = useContext(LocationContext)
-    const { restaurants = [], isLoading } = useContext(RestaurantsContext);
+    const { restaurants = [], isLoadingRestaurants } = useContext(RestaurantsContext);
 
     const [latDelta, setLatDelta] = useState(0);
     const [region, setRegion] = useState(null);
-    const { lat, lng, viewport } = location;
+    const { lat, lng, viewport } = location || {};
 
     useEffect(() => {
-        const northEastLat = viewport.northeast.lat;
-        const southWestLat = viewport.southwest.lat;
+        if (viewport) {
+            const northEastLat = viewport.northeast.lat;
+            const southWestLat = viewport.southwest.lat;
 
-        const latDelta = northEastLat - southWestLat;
+            const latDelta = northEastLat - southWestLat;
 
-        const region = {
-            latitude: lat,
-            longitude: lng,
-            latitudeDelta: latDelta,
-            longitudeDelta: 0.02
+            const region = {
+                latitude: lat,
+                longitude: lng,
+                latitudeDelta: latDelta,
+                longitudeDelta: 0.02
+            }
+            setRegion(region);
         }
-        setRegion(region);
     }, [location])
 
     return (
         <>
             <SearchBar />
-            {isLoading &&
+            {isLoadingRestaurants &&
                 <ActivityIndicator
                     animating={true}
                     color={colors.tomato}
@@ -46,7 +48,7 @@ export default function MapScreen({ navigation }) {
                 region={region}
                 style={styles.map}>
 
-                {restaurants.map((restaurant) => {
+                {restaurants && restaurants?.map((restaurant) => {
                     const coordinate = {
                         latitude: restaurant.geometry.location.lat,
                         longitude: restaurant.geometry.location.lng,

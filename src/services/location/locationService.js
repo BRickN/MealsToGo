@@ -1,15 +1,13 @@
 import camelize from "camelize";
 
-import { locations } from './locationMock';
-
-export const    locationRequest = (searchTerm) => {
-    return new Promise((resolve, reject) => {
-        const locationMock = locations[searchTerm];
-        if (!locationMock) {
-            reject('not found');
-        }
-        resolve(locationMock);
-    })
+export const locationRequest = (searchTerm) => {
+    return fetch(`https://4608-87-208-179-226.ngrok-free.app/mealstogo-55c16/us-central1/geocode?city=${searchTerm}`)
+        .then((response) => {
+            return response.json()
+        })
+        .catch((err) => {
+            console.log(err)
+        })
 }
 
 export const locationTransform = ({ results = [] }) => {
