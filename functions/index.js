@@ -12,13 +12,16 @@ const logger = require("firebase-functions/logger");
 const { geocodeRequest } = require('./geocode');
 const { placesRequest } = require('./places');
 
+const { Client } = require("@googlemaps/google-maps-services-js");
+const client = new Client({});
+
 // Create and deploy your first functions
 // https://firebase.google.com/docs/functions/get-started
 
 exports.geocode = onRequest((request, response) => {
-    geocodeRequest(request, response);
+    geocodeRequest(request, response, client);
 });
 
 exports.placesNearby = onRequest((request, response) => {
-    placesRequest(request, response);
+    placesRequest(request, response, client);
 })
