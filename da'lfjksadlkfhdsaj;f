@@ -1,0 +1,173 @@
+[33mcommit 2967c44437e469374af4f4ddd9cd7635429e86a1[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Mon Jun 26 11:11:35 2023 +0200
+
+    firebase function location and restaurant mock
+
+[33mcommit af63cbe8d7a382abff66e8fb55924052c88b1271[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun Jun 4 17:56:53 2023 +0200
+
+    dependencies
+
+[33mcommit 3ade92196f0dd245d9a213340628cdfd78a141a3[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun Jun 4 17:56:32 2023 +0200
+
+    picture
+
+[33mcommit 9ed0f60d9634e51f3418da984aa391e97e0bc1a2[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun Jun 4 13:26:17 2023 +0200
+
+    settings screen
+
+[33mcommit 8c2a92dbf2ab22ddf44ff761e695288028d4fa0b[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun Jun 4 12:02:09 2023 +0200
+
+    code cleanup
+
+[33mcommit 2c1bca3cab0df5e520b5a017573d418b878577b1[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun Jun 4 12:00:44 2023 +0200
+
+    register
+
+[33mcommit 9dbbe81177b328b60e986df1439cfec5cbedede1[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun Jun 4 09:47:56 2023 +0200
+
+    login screen
+
+[33mcommit 57d6490941bff29b4f64b5b229e49983652566eb[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sat Jun 3 21:59:40 2023 +0200
+
+    more authentication
+
+[33mcommit 7377f957558c0d0477c7519d217dc02d8e8d5226[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sat Jun 3 11:05:02 2023 +0200
+
+    favourites and beginning firebase
+
+[33mcommit 1f6b9c539e8ea861628bfae5c928dbb5ce74da9c[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Fri Jun 2 22:05:06 2023 +0200
+
+    beginning favourites functionality
+
+[33mcommit 7d6aea6541cf4f661d2a67965f36629eb3773cf4[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Fri Jun 2 19:01:29 2023 +0200
+
+    moved settings screen to seperate feature folder
+
+[33mcommit b6ea6de56ec4ee0cd095d27cf570d5a99a0a4717[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Fri Jun 2 18:45:07 2023 +0200
+
+    add font to map callout
+
+[33mcommit 1e0073b2d2c67bbb56326eb0b17640a543ce3fe9[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Fri Jun 2 17:02:33 2023 +0200
+
+    map custom callouts
+
+[33mcommit c9f7fed3b47a491d4cc76b20d8ff5421d94c64a4[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Thu Jun 1 21:01:15 2023 +0200
+
+    location markers
+
+[33mcommit 45662de6a02f036194e160b8114b35bb720fe9d6[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Wed May 31 20:12:49 2023 +0200
+
+    more map feature
+
+[33mcommit a0636a23b7d93ae8b51301696bea76b33b095e37[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Wed May 31 19:44:01 2023 +0200
+
+    beginning map feature
+
+[33mcommit 50e6c927eadb32af59004f9142ee3265728f0e8f[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Wed May 31 19:43:55 2023 +0200
+
+    restaurant offer list
+
+[33mcommit f9c7bf6fda7e7d4880e209a9c6e341c9a0c1a062[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Tue May 30 11:28:21 2023 +0200
+
+    beginning restaurant detail screen
+
+[33mcommit 16b9d607b060c6daafcca13d72b7733b902f1019[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Tue May 23 20:55:23 2023 +0200
+
+    search bar functionality
+
+[33mcommit d081cc375c0010b5a2c7e1fd29852c81aa7cd25c[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun May 21 17:01:50 2023 +0200
+
+    locationcontext
+
+[33mcommit 8f62c062f75d9d9e78dc835a42366d2fa99e4222[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun May 21 12:10:20 2023 +0200
+
+    restaurants context
+
+[33mcommit fc3b29efd2849717889bdafda034e8cd56780dff[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sun May 21 10:06:40 2023 +0200
+
+    restaurant mock data
+
+[33mcommit 08bb52bf21923d0333ce1a7370f0e4edc30d02ee[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sat May 20 17:35:52 2023 +0200
+
+    navigation
+
+[33mcommit 959e79a02086d48dc5724c7e7e881a01e866e0ac[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Sat May 20 16:06:22 2023 +0200
+
+    cardlist finished
+
+[33mcommit 4e92926ad288d58227b2e4436f2c77c6b2d0403e[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Fri May 19 20:54:53 2023 +0200
+
+    beginnings - restaurant card and list
+
+[33mcommit 02ddf1d8917d784cd3db601cf328e3ae28e3bcd9[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Fri May 19 13:36:57 2023 +0200
+
+    cleanup expo code
+
+[33mcommit 74b9f61a96b4470debd5a6829a791d8397257c58[m
+Author: bmla.nieling@student.han.nl <rick.niel@hotmail.com>
+Date:   Thu May 18 11:03:24 2023 +0200
+
+    init commit
+
+[33mcommit 90c1e1c0df63a45c8dd29559c9e8079e15335150[m
+Author: Rick Nieling <rick.niel@hotmail.com>
+Date:   Thu May 18 10:54:46 2023 +0200
+
+    Update README.md
+
+[33mcommit 1dbe12cd517a235d3d2d0d3180302ee5172f67cb[m
+Author: Rick Nieling <rick.niel@hotmail.com>
+Date:   Thu May 18 10:54:16 2023 +0200
+
+    Initial commit
